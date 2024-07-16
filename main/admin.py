@@ -100,5 +100,6 @@ class ContactAdmin(AdminAdvancedFiltersMixin, ImportExportModelAdmin):
         return super(ContactAdmin, self).changelist_view(request, extra_context)
 
 admin.site.register(Contact, ContactAdmin)
+admin.site.register(Supplier)
 admin.site.register(Tag)
 admin.site.register(Import)
