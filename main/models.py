@@ -15,6 +15,17 @@ class Import(models.Model): # Approx. 0.02 GB per 1 million records
     def __str__(self):
         return self.import_title
 
+class Supplier(models.Model): # Approx. 0.02 GB per 1 million records
+    name = models.CharField(max_length=100, unique=True, help_text=_("The name of the vendor."))
+    website = models.URLField(blank=True, help_text=_("The website of the vendor."))
+    agent_name = models.CharField(max_length=100, blank=True, help_text=_("The name of the agent of the vendor."))
+    agent_email = models.EmailField(blank=True, help_text=_("The email of the agent of the vendor."))
+    agent_phone = models.CharField(max_length=20, blank=True, help_text=_("The phone number of the agent of the vendor."))
+    work_phone = models.CharField(max_length=20, blank=True, help_text=_("The work phone number of the vendor."))
+
+    def __str__(self):
+        return self.name
+
 class Contact(models.Model): # Approx. 8.02 GB per 1 million records
     created_at = models.DateTimeField(auto_now_add=True)
     name = models.CharField(max_length=100, blank=True, help_text=_("The name of the contact."))
